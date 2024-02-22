@@ -21,3 +21,8 @@ Skills Checker is a browser extension designed to help users identify and match 
 
 ## Contributing
 Contributions are welcome! Please submit pull requests or open issues for bugs and feature requests.
+
+## ToDO:
+1. Add skill feature which are not in your resume.
+2. Add authentication
+3. Positioning and CSS enhancement
