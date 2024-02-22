@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Highlighter</title>
+    <!-- Local Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            width: 300px; /* Adjusted width for compact design */
+        }
+        #keywordsContainer {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px; /* Adds a little space between keyword badges */
+        }
+        .keyword-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5em 0.75em;
+            font-size: 0.875rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #ffffff;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #007bff;
+            border-radius: 0.375rem;
+        }
+        .remove-keyword {
+            cursor: pointer;
+            margin-left: 8px;
+            color: #fff;
+            background-color: transparent;
+            border: none;
+        }
+        .header-icon {
+            width: 24px; /* Adjust based on your icon's size */
+            height: 24px; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between icon and text */
+            vertical-align: middle; /* Align icon with the middle of the text */
+        }
+        h1 {
+            font-size: 20px; /* Adjust header text size for smaller screens */
+        }
+        .keyword-badge{
+            font-size: 12px; /* Adjust keyword badge text size for smaller screens */
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <img src="content-marketing.png" alt="Icon Description" class="header-icon">
+        Skill Highlights
+    </h1>
+    <div class="input-group mb-3">
+        <p>Highlight Skills on Linkedin and Indeed Job Postings</p>
+        <textarea type="text" id="keywordInput" class="form-control" placeholder="Skill1, Skill2, Skill3,. . ." aria-label="Enter keyword">&nbsp; &nbsp;</textarea>
+    </div>
+    <button class="btn btn-outline-success btn-sm" type="button" id="button-add">Add</button> &nbsp; &nbsp;
+    <div id="keywordsContainer"></div>
+
+    <!-- Local Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="popup.js"></script>
+
+</body>
+</html>
