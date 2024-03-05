@@ -1,0 +1,223 @@
+#root {
+  width: 500px;
+  height: 700px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  display: none;
+}
+
+.floating-btn {
+  position: fixed;
+  top: 20px;
+  right: 5px;
+  z-index: 999;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+label {
+  display: inline-block;
+}
+
+input[type="checkbox"] {
+  display: none; /* Hide the default checkbox */
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+/* Style the button when checked */
+input[type="checkbox"]:checked + .button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #f6f9ff;
+  color: #444444;
+}
+
+a {
+  color: #4154f1;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #717ff5;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
+#main {
+  margin-top: 60px; /* This should be at least the height of your header */
+  max-width: 500px;
+  max-height: 600px;
+  overflow: auto; /* Enables scrolling for overflow content */
+  padding: 20px 30px;
+}
+
+.main .card .card-body {
+  max-height: 150px; 
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #aab7cf #fff;
+}
+
+/* @media (max-width: 1199px) {
+  #main {
+    padding: 20px;
+  }
+} */
+@media (max-width: 500px) {
+  h1, h2, h3, h4, h5, h6, .pagetitle h3, .error-404 h1, .error-404 h2 {
+    font-size: smaller; /* Adjust font sizes as needed */
+  }
+  #main, .error-404, .footer {
+    padding: 10px; /* Reduce padding */
+  }
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.logo {
+  line-height: 1;
+}
+
+/* @media (min-width: 1200px) {
+  .logo {
+    width: 280px;
+  }
+} */
+@media (max-width: 500px) {
+  .logo {
+    width: 280px;
+  }
+}
+
+.logo img {
+  max-height: 26px;
+  margin-right: 6px;
+}
+
+.logo span {
+  font-size: 26px;
+  font-weight: 700;
+  color: #012970;
+  font-family: "Nunito", sans-serif;
+}
+
+#header {
+  height: 60px; /* Adjust if your header height is different */
+  /* Other styles */
+}
+
+.header {
+  transition: all 0.5s;
+  z-index: 997;
+  height: 60px;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+  padding-left: 20px;
+  /* Toggle Sidebar Button */
+  /* Search Bar */
+}
+/* 
+@media (max-width: 1199px) {
+  .header .search-bar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
+    background: white;
+    z-index: 9999;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .header .search-bar-show {
+    top: 60px;
+    visibility: visible;
+    opacity: 1;
+  }
+} */
+
+
+@media (max-width: 500px) {
+  .header .search-bar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
+    background: white;
+    z-index: 9999;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .header .search-bar-show {
+    top: 60px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+  padding: 5px 0;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-top: 1px solid #cddfff;
+}
+
+.footer .copyright {
+  text-align: center;
+  color: #012970;
+}
+
+.footer .credits {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #012970;
+}
+
+.header, .footer {
+  width: 100%;
+  max-width: 500px; /* Make sure these match the max-width of #main */
+}
+

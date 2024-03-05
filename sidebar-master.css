@@ -1,0 +1,67 @@
+/* Floating Action Button Styles */
+.action-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.button-main {
+  background-color: #6200EE; /* Replace with your desired color */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-main span {
+  color: white;
+  font-size: 30px;
+}
+
+/* Modal Styles */
+.modal {
+  display: flex ; 
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 500px; 
+  height: 600px; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 500px;
+  height: 600px;
+  overflow: auto;
+  position: relative; /* Fixed position */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center the div */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
