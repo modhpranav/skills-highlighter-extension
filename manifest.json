@@ -11,7 +11,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_end"
     }
   ],
   "action": {
@@ -29,7 +29,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["css/bootstrap.min.css", "js/bootstrap.min.js", "utils/common.js", "crawler.js", "background.js", "content.js", "popup.html", "utils/customstyles.js"],
+      "resources": ["css/bootstrap.min.css", "js/bootstrap.min.js", "utils/common.js", "crawler.js", "background.js", "content.js", "popup.html", "utils/customstyles.js", "applicationTracker.js"],
       "matches": ["<all_urls>"]
     }
   ]

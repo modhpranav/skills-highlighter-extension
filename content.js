@@ -28,6 +28,32 @@ async function executeScript(website) {
     });
 }
 
+async function getData(website){
+    if (website === 'linkedin') {
+        console.log(document.querySelector('.job-details-jobs-unified-top-card__job-title-link'));
+        return document.querySelector('.job-details-jobs-unified-top-card__job-title-link');
+    }
+}
+
+async function applicationTrack(elementclicked) {
+    let jobTitle = getData('linkedin');
+    if (elementclicked.textContent === "Apply") {
+        console.log('Apply button clicked');
+        localStorage.setItem('jobTitle', jobTitle.textContent.trim());
+        console.log('Job title in storage:', localStorage.getItem('jobTitle'));
+        document.getElementById('applyButton').hidden = false;
+        document.getElementById('applyButton').textContent = 'Applied! 🎉';
+    }else if (elementclicked.textContent === "Applied! 🎉"){
+        localStorage.removeItem('jobTitle');
+        document.getElementById('applyButton').textContent = 'UnApplied! 😔';
+    }else if(elementclicked.textContent === "UnApplied! 😔"){
+        localStorage.setItem('jobTitle', jobTitle.textContent.trim());
+        document.getElementById('applyButton').textContent = 'Applied! 🎉';
+    }else{
+        localStorage.setItem('jobTitle', jobTitle.textContent.trim());
+    }
+}
+
 // Listener for the storage change
 
 // Listen for messages from the popup or background script
@@ -38,22 +64,22 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+// document.addEventListener('DOMContentLoaded', async () => {
     
-    // Define target elements
-    let linkedinTarget = document.querySelector('.jobs-description-content__text');
-    let indeedTarget = document.querySelector('.target-div-2');
-    try {
-        if (linkedinTarget) {
-            executeScript('linkedin');
-        }
-        if (indeedTarget) {
-            executeScript('indeed');
-        }
-    } catch (error) {
-        console.error('Failed to execute script:', error);
-    }
-});
+//     // Define target elements
+//     let linkedinTarget = document.querySelector('.jobs-description-content__text');
+//     let indeedTarget = document.querySelector('.target-div-2');
+//     try {
+//         if (linkedinTarget) {
+//             executeScript('linkedin');
+//         }
+//         if (indeedTarget) {
+//             executeScript('indeed');
+//         }
+//     } catch (error) {
+//         console.error('Failed to execute script:', error);
+//     }
+// });
 
 
 async function setUpObserver() {
@@ -94,7 +120,7 @@ async function setUpObserver() {
     }
 }
 
-setUpObserver();
+// setUpObserver();
 
 function setupClickListener() {
     // Select the tab(s) you're interested in
@@ -112,3 +138,14 @@ function setupClickListener() {
 
 // Execute setupClickListener to attach the event listeners
 setupClickListener();
+executeScript('indeed');
+executeScript('linkedin');
+
+// Add a click event listener to the document
+document.addEventListener('click', function(event) {
+    let clickedElement = event.target;
+    console.log(clickedElement); // Logs the clicked element to the console
+    executeScript('indeed');
+    executeScript('linkedin');
+    applicationTrack(clickedElement);
+});

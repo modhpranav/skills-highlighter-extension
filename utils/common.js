@@ -162,6 +162,26 @@ class Card{
         }
     }
 
+    addApplyButton(){
+        let applyButton = document.createElement('button');
+        applyButton.type = 'button';
+        applyButton.className = 'btn btn-secondary';
+        applyButton.textContent = 'Applied! 🎉';
+        applyButton.id = 'applyButton';
+        applyButton.onclick = () => {
+            if (applyButton.textContent === "Applied! 🎉"){
+                localStorage.removeItem('jobTitle');
+                applyButton.textContent = 'UnApplied! 😔';
+            }else {
+                const jobTitle = document.querySelector('.job-details-jobs-unified-top-card__job-title-link');
+                applyButton.textContent = 'Applied! 🎉';
+                localStorage.setItem('jobTitle', jobTitle.textContent.trim());
+            }
+        };
+        applyButton.hidden = true;
+        this.cardContainer.appendChild(applyButton);
+    }
+
     async run(){
         try {
             if (await this.checkTargetDivOrSkills() === false) return;
@@ -175,6 +195,7 @@ class Card{
             this.cardContainer.appendChild(newDiv); // Append at the desired location in the container
             this.createMatchedSkillsCard();
             this.createUnmatchedSkillsCard();
+            this.addApplyButton();
             this.targetDiv.appendChild(this.cardContainer);
             console.log('Card created successfully.');
             return "Card created successfully."
@@ -183,6 +204,7 @@ class Card{
             return "Error creating card."
         }
     }
+    
 }
 
 export { Card };
